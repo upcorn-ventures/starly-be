@@ -66,6 +66,9 @@ Java + Spring Boot ile geliştirilen bu servis, mobil cihazlara Firebase (Androi
 }
 ```
 
+### `ScheduledNotificationService`
+📌 Bu servis arkaplanda her dakikada bir tetiklenir. DB de o dakika için planlanmış uygun affirmation bulunması durumunda ilgili kullanıcılara bildirim gönderir.
+
 ---
 
 ## ⚙️ Yapılandırma Hakkında
