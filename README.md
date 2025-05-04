@@ -42,7 +42,7 @@ Java + Spring Boot ile geliştirilen bu servis, mobil cihazlara Firebase (Androi
 }
 ```
 ### `POST /notification-preferences/save`
-📌 Kullanıcının saat bazlı bildirim tercihlerini kaydeder.
+📌 Kullanıcının saat bazlı bildirim tercihlerini kaydeder. Kullanıcı hangi yerel saat dilimindeyse o alınıp aşağıdaki gibi parametre olarak gönderilmelidir. Arkaplanda BE servis bu zaman diliminin UTC dönüşümünü yapar ve DB ye kaydeder.
 
 #### Örnek İstek:
 ```json
@@ -55,7 +55,7 @@ Java + Spring Boot ile geliştirilen bu servis, mobil cihazlara Firebase (Androi
 }
 ```
 ### `POST /push/broadcast`
-📌 Tüm uygun cihazlara toplu bildirim gönderir.
+📌 Tüm uygun cihazlara toplu bildirim gönderir. platform: both, ios, android olarak verilmelidir.
 
 #### Örnek İstek:
 ```json
@@ -65,9 +65,17 @@ Java + Spring Boot ile geliştirilen bu servis, mobil cihazlara Firebase (Androi
   "platform": "both"
 }
 ```
+
+---
+
 ##⚙️ Yapılandırma Hakkında
 
 Uygulama yapılandırmaları .env dosyasındaki ortam değişkenleri üzerinden alınır ve application.properties bu değişkenlere referans verir.
 
-Firebase servis hesabı dosyası (firebase-config.json) ve application-dev.properties gibi konfigürasyon dosyaları güvenlik sebebiyle bu repoya dahil edilmemiştir. Projenin doğru şekilde çalışabilmesi için bu dosyaların manuel olarak temin edilmesi ve uygun yerlere yerleştirilmesi gerekir.
+Firebase servis hesabı dosyası (firebase-config.json) ve application-dev.properties gibi konfigürasyon dosyaları güvenlik sebebiyle bu repoya dahil edilmemiştir. Projenin doğru şekilde çalışabilmesi için bu dosyaların manuel olarak temin edilmesi ve uygun yerlere yerleştirilmesi gerekir. 
+Yani: 
+Dev application properties dosyası olmadan bu projeyi lokalinizde çalıştıramazsınız.
+.env dosyası olmadan bu projeyi sunucuda da çalıştıramazsınız.
+
+Servislerde güvenlik olarak CORS kısıtlaması mevcut. Ayarlarıyla ilgili detayları sorunuz.
 
