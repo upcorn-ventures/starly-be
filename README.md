@@ -30,7 +30,7 @@ Java + Spring Boot ile geliştirilen bu servis, mobil cihazlara Firebase (Androi
 }
 ```
 
-### `POST /push/send
+### `POST /push/send`
 📌 Belirli bir cihaza bildirim gönderir.
 
 #### Örnek İstek:
@@ -41,7 +41,7 @@ Java + Spring Boot ile geliştirilen bu servis, mobil cihazlara Firebase (Androi
   "body": "bildirim geldiyse gruptan yaz"
 }
 ```
-### `POST /notification-preferences/save
+### `POST /notification-preferences/save`
 📌 Kullanıcının saat bazlı bildirim tercihlerini kaydeder.
 
 #### Örnek İstek:
@@ -54,7 +54,7 @@ Java + Spring Boot ile geliştirilen bu servis, mobil cihazlara Firebase (Androi
   "enabled": true
 }
 ```
-### `POST /push/broadcast
+### `POST /push/broadcast`
 📌 Tüm uygun cihazlara toplu bildirim gönderir.
 
 #### Örnek İstek:
