@@ -68,7 +68,7 @@ Java + Spring Boot ile geliştirilen bu servis, mobil cihazlara Firebase (Androi
 
 ---
 
-##⚙️ Yapılandırma Hakkında
+## ⚙️ Yapılandırma Hakkında
 
 Uygulama yapılandırmaları .env dosyasındaki ortam değişkenleri üzerinden alınır ve application.properties bu değişkenlere referans verir.
 
