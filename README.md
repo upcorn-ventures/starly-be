@@ -21,7 +21,7 @@ Java + Spring Boot ile geliştirilen bu servis, mobil cihazlara Firebase (Androi
 📌 Cihaz bilgilerini kaydeder (FCM + APNs token'ları dahil).
 
 #### Örnek İstek:
-json
+``json
 {
   "deviceId": "23044A45-6B4D-40EF-8AA0-6AE68F1A4328",
   "fcmToken": "fcm-token",
