@@ -5,6 +5,7 @@ import com.starly.starlybe.client.SupabaseClient;
 import com.starly.starlybe.dto.AffirmationDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,9 @@ public class ScheduledNotificationService {
     private final SupabaseClient supabaseClient;
     private final AffirmationService affirmationService;
     private final NotificationService notificationService;
+
+    @Value("${notification_title}")
+    private String notificationTitle;
 
     public ScheduledNotificationService(
             SupabaseClient supabaseClient,
@@ -60,7 +64,7 @@ public class ScheduledNotificationService {
             log.info("📨 Gönderilecek affirmation: id={}, text=\"{}\"", affirmation.getId(), affirmation.getText());
 
             try {
-                notificationService.sendNotificationToDevice(deviceId, "Bugünkü Mesajın", affirmation.getText());
+                notificationService.sendNotificationToDevice(deviceId, notificationTitle, affirmation.getText());
                 log.info("✅ Bildirim gönderildi: deviceId={}, userId={}", deviceId, userId);
 
                 affirmationService.deactivateAffirmation(affirmation);
