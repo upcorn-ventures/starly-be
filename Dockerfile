@@ -10,7 +10,7 @@ FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
  
 # Gerekli araçları yükle
-RUN apk add --no-cache curl telnet bash
+RUN apk add --no-cache busybox-extras curl bash
  
 COPY --from=build /app/target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
